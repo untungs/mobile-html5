@@ -1,0 +1,586 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Aplikasi Mobile Berbasis Web dengan HTML5</title>
+
+    <meta name="description" content="Presentasi untuk melengkapi tugas proyek mata kuliah Teknologi Mobile">
+    <meta name="author" content="Untung Suryono">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <style>
+      figure {
+        width: 50%;
+        height: 16em;
+        float: left;
+      }
+      figcaption {
+        color: tomato;
+      }
+      .reveal ul li {
+        margin-bottom: 15px;
+      }
+    </style>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Web Mobile Apps</h1>
+          <h3>Dengan HTML5 Dan Javascript</h3>
+        </section>
+
+        <section data-markdown="slides/kelompok.md" id="kelompok"></section>
+
+        <section id="pengertian">
+          <section>
+            <h2>HTML5</h2>
+            <p>Spesifikasi standar HTML (HyperText Markup Language) yang dikeluarkan oleh <a href="http://www.w3.org" target="_blank">World Wide Web Consortium</a> (W3C) sebagai revisi ke-lima.</p>
+          </section>
+
+          <section>
+            <p>HTML5 ~= <span class="fragment">HTML</span> + <span class="fragment">CSS</span> + <span class="fragment">JS</span></p>
+          </section>
+        </section>
+
+        <section id="sejarah">
+          <h2>Sejarah Singkat HTML5</h2>
+          <section>
+            <ul>
+              <li>
+                <em>Desember 1999</em>: W3C merekomendasikan <a href="http://www.w3.org/TR/html401/" target="_blank">HTML 4.01</a>, versi HTML terakhir sebelum HTML5
+              </li>
+              <li class="fragment">
+                <em>Januari 2000</em>: W3C merekomendasikan <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/" target="_blank">XHTML 1.0</a>, kombinasi antara HTML 4 dan XML
+              </li>
+              <li class="fragment">
+                <em>Agustus 2002 - Juli 2006</em>: W3C mengerjakan draft <a href="http://en.wikipedia.org/wiki/XHTML#XHTML_2.0" target="_blank">XHTML 2.0</a>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                <em>Juni 2004</em>: <a href="https://whatwg.org/" target="_blank">Web Hypertext Application Technology Working Group</a> (WHATWG) mulai mengerjakan standar baru untuk HTML yang menjadi landasan HTML5
+              </li>
+              <li class="fragment">
+                <em>Juli 2009</em>: W3C memutuskan untuk <a href="http://www.w3.org/MarkUp/#news" target="_blank">mengakhiri pengembangan XHTML 2.0</a> dan bekerja sama dengan WHATWG dalam pengembangan HTML5
+              </li>
+              <li class="fragment">
+                <em>Oktober 2014</em>: HTML5 dirilis dengan status <a href="http://www.w3.org/2014/10/html5-rec.html.en" target="_blank">Recommendation</a> oleh W3C
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section id="kelebihan">
+          <h2>Kelebihan</h2>
+          <ul>
+            <li>Multi-platform</li>
+            <li class="fragment">Biaya lebih rendah</li>
+            <li class="fragment">Pemasaran lebih cepat</li>
+          </ul>
+        </section>
+
+        <section id="kelemahan">
+          <h2>Kelemahan</h2>
+          <ul>
+            <li>Performa lebih rendah vs native</li>
+            <li class="fragment">Monetisasi</li>
+            <li class="fragment">Fragmentasi perangkat</li>
+          </ul>
+        </section>
+
+        <section id="fitur-rangkuman">
+          <h2>Fitur-Fitur Kunci HTML5</h2>
+          <h3>untuk Aplikasi Mobile</h3>
+          <ul>
+            <li>Tag Meta Viewport</li>
+            <li>Application Cache</li>
+            <li>Canvas Drawing</li>
+            <li>Touch Events</li>
+            <li>Orientation Events</li>
+            <li>GeoLocation API</li>
+            <li>Form Input Types</li>
+          </ul>
+        </section>
+
+        <section id="viewport" style="text-align: left;">
+          <section>
+            <h3>Tag Meta Viewport</h3>
+            <ul>
+              <li><em>Viewport</em> = Area Pandang</li>
+              <li>mengontrol bagaimana halaman web ditampilkan di perangkat mobile</li>
+              <li>kontrol terhadap lebar halaman dan penskalaan pada berbagai perangkat</li>
+            </ul>
+            <p>Sintaks:</p>
+            <pre><code data-trim contenteditable>
+&lt;head&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  ...
+&lt;head&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <figure>
+              <img src="images/viewport-1.jpg">
+              <figcaption>Tanpa meta viewport</figcaption>
+            </figure>
+            <figure>
+              <img src="images/viewport-2.jpg">
+              <figcaption>Dengan meta viewport</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <figure>
+              <img src="images/viewport-3.jpg">
+              <figcaption>Tanpa atribut <code>initial-scale=1</code></figcaption>
+            </figure>
+            <figure>
+              <img src="images/viewport-4.jpg">
+              <figcaption>Dengan atribut <code>initial-scale=1</code></figcaption>
+            </figure>
+          </section>          
+        </section>
+
+        <section id="appcache" style="text-align: left;">
+          <section>
+            <h3>Application Cache</h3>
+            <ul>
+              <li>mengakses aplikasi web meskipun tanpa koneksi internet dengan menggunakan cache manifest</li>
+              <li>alamat file-file yang ingin bisa digunakan secara offline dimasukkan dalam sebuah file manifest</li>
+              <li>nama file manifest ditambahkan ke atribut <code>manifest</code> pada tag <code>&lt;html&gt;</code></li>
+            </ul>
+          </section>
+          <section>
+            <p style="text-align: left;">Contoh file HTML:</p>
+            <pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html manifest="manifest.appcache"&gt;
+&lt;head&gt;
+  &lt;title&gt;Test&lt;/title&gt;
+  &lt;script src="test.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="test.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Testing the manifest file.
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <p style="text-align: left;">File <code>manifest.appcache</code></p>
+            <pre><code data-trim contenteditable>
+CACHE MANIFEST 
+/test.css
+/test.js
+/test.png
+            </code></pre>
+          </section>
+        </section>
+
+        <section id="canvas" style="text-align: left;">
+          <section>
+          <h3>Canvas Drawing</h3>
+            <ul>
+              <li>untuk menggambar grafik dan objek 2D/3D</li>
+              <li>menggunakan script Javascript</li>
+            </ul>
+            <p style="text-align: left;">Contoh elemen canvas:</p>
+            <pre><code style="word-wrap: break-word;">&lt;canvas id=”kanvasku” width=”320″ height=”200″ style="border:1px solid
+#000000;"&gt;
+  Browser Anda tidak mendukung elemen canvas
+&lt;/canvas&gt;</code></pre>
+          </section>
+
+          <section>
+            <h4 style="text-align: left;">Canvas 2D</h4>
+            <p>Contoh script membuat persegi panjang:</p>
+            <pre><code data-trim contenteditable>
+function persegi(){
+  // menemukan elemen kanvas
+  var canvas = document.getElementById('kanvasku'); 
+  // objek yang mempunyai method2 untuk menggambar
+  var context = canvas.getContext('2d');
+  // memilih warna
+  context.fillStyle="#999999";
+  // kotak dengan isian warna (x, y, lebar, tinggi)
+  context.fillRect(10,50,200,100);
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>Canvas 3D (WebGL)</h4>
+            <p>WebGL memungkinkan aplikasi web untuk merender grafik 3D menggunakan API berbasis OpenGL ES 2.0.</p>
+            <p>Objek untuk pengolahan grafik 3D:</p>
+            <pre><code data-trim contenteditable style="word-wrap: break-word;">
+var gl = canvas.getContext("webgl");
+
+if (!gl) {
+  alert("Tidak dapat menginisialisasi WebGL. Mungkin browser Anda tidak mendukungnya.");
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section id="touch-events" style="text-align: left;">
+          <section>
+            <h3>Touch Events</h3>
+            <ul>
+              <li>Menangkap kejadian/event sentuhan pada layar sentuh.</li>
+            </ul>
+            <p class="fragment">Event sentuhan:</p>
+            <table class="fragment">
+              <thead>
+                <tr>
+                  <td>Event</td>
+                  <td>Deskripsi</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>touchstart</code></td>
+                  <td>Dipicu saat sentuhan terdeteksi</td>
+                </tr>
+                <tr>
+                  <td><code>touchmove</code></td>
+                  <td>Dipicu saat sentuhan digerakkan</td>
+                </tr>
+                <tr>
+                  <td><code>touchend</code></td>
+                  <td>Dipicu saat sentuhan berhenti</td>
+                </tr>
+                <tr>
+                  <td>touchcancel</td>
+                  <td>Dipicu saat sentuhan terinterupsi</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <p style="text-align: left">Contoh script:</p>
+            <pre><code data-trim contenteditable>
+function init() {
+  var touchzone = document.getElementById("kanvasku");
+  // gambar saat mulai menyentuh
+  touchzone.addEventListener("touchstart", draw, false);
+  // gambar saat menggerakkan sentuhan
+  touchzone.addEventListener("touchmove", draw, false);
+}
+ 
+function draw() {
+  var canvas = document.getElementById('kanvasku');
+
+  if(canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    ctx.fillRect (event.touches[0].pageX, event.touches[0].pageY, 5, 5);
+  }
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section id="orientation" style="text-align: left">
+          <section>
+            <h3>Orientation API</h3>
+            <p><em>Device Orientation API</em> memberikan data orientasi dan pergerakan perangkat mobile dari sensor:</p>
+            <ul>
+              <li>Kompas</li>
+              <li>Accelerometer</li>
+              <li>Gyroscope</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>Tiga macam event dalam <em>Device Orientation API</em>:</p>
+            <small>
+            <table>
+              <thead>
+                <tr>
+                  <td>Event</td>
+                  <td>Deskripsi</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>deviceorientation</code></td>
+                  <td>Dipicu saat terjadi perubahan orientasi perangkat</td>
+                </tr>
+                  <td><code>compassneedscalibration</code></td>
+                  <td>Dipicu saat sensor kompas perlu dikalibrasi</td>
+                <tr>
+                  <td><code>devicemotion</code></td>
+                  <td>Memberikan data mengenai pergerakan perangkat secara teratur</td>
+                </tr>
+              </tbody>
+            </table>
+            </small>
+          </section>
+
+          <section>
+            <h4>Event <code>DeviceOrientation</code></h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Properti</td>
+                  <td>Deskripsi</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>alpha</code></td>
+                  <td>Arah perangkat berdasarkan kompas</td>
+                </tr>
+                <tr>
+                  <td><code>beta</code></td>
+                  <td>Derajat arah kemiringan perangkat ke depan dan belakang</td>
+                </tr>
+                <tr>
+                  <td><code>gamma</code></td>
+                  <td>Derajat arah kemiringan perangkat ke kiri dan kanan</td>
+                </tr>
+              </tbody>
+            </table>
+            <img src="images/orientation-1.jpg" style="display: block; margin: 0 auto;">
+          </section>
+
+          <section>
+            <p>Mengakses data orientasi menggunakan Javascript:</p>
+            <pre><code data-trim contenteditable>
+// memeriksa apakah perangkat mendukung event ini
+if(window.DeviceOrientationEvent) {
+        
+  // jalankan fungsi jika terjadi perubahan orientasi
+  window.addEventListener('deviceorientation', function(event) {
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
+
+    // Lakukan sesuatu
+  }, false);
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section id="geolocation" style="text-align: left">
+          <section>
+            <h3>GeoLocation API</h3>
+            <ul>
+              <li>Melokasikan posisi perangkat mobile di Bumi</li>
+              <li>Metode:</li>
+              <ul>
+                <li>Pemosisian WiFi</li>
+                <li>Triangulasi tower seluler GSM</li><!-- http://www.dadanpurnama.com/2015/02/sistem-cara-kerja-dan-cara-melacak-posisi-dari-nomor-hp.html -->
+                <li>Pemosisian satelit GPS</li>
+              </ul>
+              <li>Perlindungan privasi: aplikasi harus meminta izin untuk mengakses lokasi perangkat</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>Method JavaScript:</p>
+            <ul>
+              <li><code>getCurrentPosition()</code> : mendapatkan lokasi perangkat saat ini</li>
+              <li><code>watchPosition() : mendapatkan lokasi perangkat dan terus memperbaruinya</code></li>
+              <li><code>clearWatch() : menghentikan method <code>watchPosition()</code></code></li>
+            </ul>
+          </section>
+
+          <section>
+            <table style="font-size: 0.8em">
+              <thead>
+                <tr>
+                  <td>Properti</td>
+                  <td>Deskripsi</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>coords.latitude</code></td>
+                  <td>Garis lintang dalam angka desimal</td>
+                </tr>
+                <tr>  
+                  <td><code>coords.longitude</code></td>
+                  <td>Garis bujur dalam angka desimal</td>
+                </tr>
+                <tr>
+                  <td><code>coords.accuracy</code></td>
+                  <td>Akurasi koordinat yang didapatkan</td>
+                </tr>
+                <tr>
+                  <td><code>coords.altitude</code></td>
+                  <td>Ketinggian (meter) di atas permukaan laut</td>
+                </tr>
+                <tr>
+                  <td><code>coords.altitudeAccuracy</code></td>
+                  <td>Akurasi dari posisi ketinggian di atas permukaan laut</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <p>Contoh script:</p>
+            <pre><code data-trim contenteditable>
+var logElem = document.getElementById("geo-log"); // Elemen untuk menuliskan posisi
+var mapElem = document.getElementById("geo-map"); // Elemen untuk menampilkan gambar peta
+
+// Mendeteksi API geolocation sebelum menggunakannya
+
+if (navigator.geolocation) {
+ 
+  // Fungsi ini akan dieksekusi setelah posisi user didapatkan, yaitu
+  // menampilkan gambar peta pada latitude dan longitude posisinya
+
+  var successCallback = function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var acc = position.coords.accuracy;
+    logElem.innerHTML = 'Anda berada di (' + lat + ', ' + lng + ') dengan akurasi ' + acc + ' meter.';
+    mapElem.innerHTML = '&lt;img src="http://maps.google.com/maps/api/staticmap?markers=' + lat + ',' + lng + '&zoom=13&size=340x440&sensor=true" /&gt;';
+  };
+ 
+  // Fungsi ini akan dieksekusi jika lokasi user tidak bisa didapatkan
+
+  var errorCallback = function() {
+    logElem.innerHTML = 'Maaf, tidak bisa mendapatkan lokasi Anda.';
+  };
+ 
+  // Mendapatkan posisi user
+
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+} else { // Jika browser tidak mendukung API geolocation
+  logElem.innerHTML = 'Maaf, browser Anda tidak mendukung geolocation.';
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section id="inputtypes" style="text-align: left">
+          <section>
+            <h3>Form Input Types</h3>
+            <ul>
+              <li>Petunjuk untuk browser tentang jenis layout keyboard yang alam ditampilkan</li>
+              <li>Built-in validasi untuk beberapa jenis masukan seperti email dan url</li>
+            </ul>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <script type="text/template">
+              Input Type | Description
+              --- | ---
+              `url` | url atau alamat web diawali dengan http://, ftp:// atau mailto:
+              `tel` | input nomor telepon, layout keyboard otomatis menampilkan angka saja
+              `email` | input email, simbol ‘@’ muncul pada layout keyboard
+              `search` | input teks biasa yang digunakan untuk pencarian pada browser
+              `number` | input angka, bisa berupa integer atau float
+              `color` | memilih warna
+              `range` | input angka yang ditampilkan dengan slider
+            </script>
+          </section>
+
+          <section data-markdown style="font-size: 0.8em">
+            <script type="text/template">
+              Input Type | Description
+              --- | ---
+              `datetime` | input tanggal dan waktu berdasarkan GMT
+              `datetime-local` | sama dengan ‘`datetime`’ tetapi menggunakan zona lokal di mana perangkat sedang berada
+              `date` | input tanggal saja tanpa memperhatikan time zone
+              `time` | input jam saja tanpa memperhatikan time zone
+              `week` | input minggu yaitu minggu pada tahun ataupun pada setiap bulannya
+              `month` | input bulan dan tahun tanpa memperhatikan timezone
+            </script>
+          </section>
+
+          <section>
+            <p>Sintaks:</p>
+            <pre><code data-trim contenteditable>
+&lt;label&gt;Email:&lt;/label&gt;
+&lt;input type="email"&gt;
+
+&lt;label&gt;URL:&lt;/label&gt;
+&lt;input type="url"&gt;
+
+&lt;label&gt;Telephone:&lt;/label&gt;
+&lt;input type="tel"&gt;
+
+&lt;label&gt;Number:&lt;/label&gt;
+&lt;input type="number"&gt;
+
+&lt;label&gt;Range:&lt;/label&gt;
+&lt;input type="range"&gt;
+
+&lt;label&gt;Color:&lt;/label&gt;
+&lt;input type="color"&gt;
+
+&lt;label&gt;Date Demo&lt;/label&gt;
+&lt;input type="date"&gt;
+
+&lt;label&gt;Time Demo&lt;/label&gt;
+&lt;input type="time"&gt;
+
+&lt;label&gt;DateTime Local Demo&lt;/label&gt;
+&lt;input type="datetime-local"&gt;
+
+&lt;label&gt;Month Demo&lt;/label&gt;
+&lt;input type="month"&gt;
+
+&lt;label&gt;Week Demo&lt;/label&gt;
+&lt;input type="week"&gt;
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h1>Terima Kasih</h1>
+          <p><small><a href="http://untungs.github.io/mobile-html5">untungs.github.io/mobile-html5</a></small></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        history: true,
+
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+
+</html>
