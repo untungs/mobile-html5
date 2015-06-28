@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5imple To Do List</title>
+    <script src="slip.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body onload="init();">
+
+    <div id="container">
+      <div id="header">
+        <h2>5imple To Do List</h2>
+        <div style="margin-bottom: 5px;">Tahan dan geser untuk mengurutkan</div>
+        <div>Geser kiri/kanan untuk menghapus</div>
+        <button id="toggleinfo">Info</button>
+        <div id="info" style="display: none">
+          <p>Aplikasi ini mengimplementasikan fitur:</p>
+          <ul>
+            <li>Viewport</li>
+            <li>Application Cache - <i>matikan koneksi lalu coba refresh browser</i></li>
+            <li>Touch Event - <i>melalui slip.js</i></li>
+            <li>Orientation</li>
+            <li>Local Storage - <i>untuk menyimpan daftar todo di perangkat</i></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="body">
+        <ul id="todolist">
+          <li style="background-color:#5d9cec">Meeting jam 10</li>
+          <li style="background-color:#ffce54">Ngerjain tugas Teknologi Mobile</li>
+        </ul>
+      </div>
+
+      <div id="footer">
+        <input type="text" name="listbaru" id="listbaru" placeholder="Tambah list baru" />
+        <button id="tambahlist">Tambahkan</button>
+      </div>
+
+    </div>
+  </body>
+</html>

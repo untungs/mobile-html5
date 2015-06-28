@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geolocation test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.5, maximum-scale=1.0" />
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</head>
+<body>
+  <div>
+    <button id="see-position">Show Position</button> <span id="geo-log"></span>
+    <div id="geo-map" class="gmap example" style="width:340px; height: 450px;">
+      <img src="http://maps.google.com/maps/api/staticmap?markers=-7.8131195,110.376223&zoom=10&size=340x450&sensor=true"/>
+    </div>
+
+    <script defer>
+    (function() {
+      var map = null;
+      var geolog = document.querySelector('#geo-log');
+      var geoMap = document.querySelector('#geo-map');
+
+      function showPosition(position) {
+        geolog.textContent = "You're within " + position.coords.accuracy +
+            " meters of (" + position.coords.latitude + ", " +
+            position.coords.longitude + ")";
+        var latLng = new google.maps.LatLng(
+            position.coords.latitude, position.coords.longitude);
+        var marker = new google.maps.Marker({
+          position: latLng,
+          map: map
+        });
+        map.setCenter(latLng);
+        map.setZoom(15);
+      }
+
+      function handlePositionError(evt) {
+        geolog.textContent = 'Maaf, tidak bisa mendapatkan lokasi Anda.';
+      }
+
+      function successPositionHandler(evt) {
+        // Load map if it doesn't already exist and when user clicks the button.
+        if (!map) {
+          map = new google.maps.Map(geoMap, {
+            zoom: 3,
+            center: new google.maps.LatLng(25.040854, 121.518549), // United States
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+          map.getDiv().style.border =  '1px solid #ccc';
+        }
+
+        if (navigator.geolocation) {
+          geolog.style.visibility = 'visible';
+          geolog.textContent = 'Looking for location...';
+          navigator.geolocation.getCurrentPosition(showPosition, handlePositionError);
+          // Also monitor position as it changes.
+          navigator.geolocation.watchPosition(showPosition, handlePositionError);
+        } else {
+          geolog.textContent = 'Maaf, browser Anda tidak mendukung geolocation.';
+        }
+      }
+
+      document.querySelector('#see-position').addEventListener('click', successPositionHandler, false);
+    })();
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no ">
+  <script>
+  function persegi(){
+    var canvas = document.getElementById('kanvasku'); // menemukan elemen kanvas
+    var context = canvas.getContext('2d'); // objek yang mempunyai method2 untuk menggambar
+    context.fillStyle="#999999"; // memilih warna
+    context.fillRect(10,50,200,100); // (x, y, lebar, tinggi)
+  }
+  function garis(){
+    var canvas = document.getElementById('kanvasku');
+    var context = canvas.getContext('2d');
+    context.moveTo(10,100); // pindah ke titik (x, y)
+    context.lineTo(320,0); // buat garis ke titik (x, y)
+    context.stroke(); // gambarkan garisnya
+  }
+  function lingkaran(){
+    var canvas = document.getElementById('kanvasku');
+    var context = canvas.getContext('2d');
+    context.beginPath(); // memulai garis
+    context.arc(160,100,50,0,2*Math.PI); // membuat kurva (x, y, radius, sudut mulai, sudut akhir)
+    context.stroke(); // gambarkan garisnya
+  }
+  </script>
+</head>
+<body > 
+  <canvas id="kanvasku" width="320" height="200" style="border:1px solid #000000;">
+    Browser Anda tidak mendukung tag canvas HTML5.
+  </canvas>
+  <div>
+    <button onclick="persegi()">Persegi</button>
+    <button onclick="garis()">Garis</button>
+    <button onclick="lingkaran()">Lingkaran</button>
+  </div>
+</body>
+</html>

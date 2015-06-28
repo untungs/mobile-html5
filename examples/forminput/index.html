@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test Input</title>
+  <style>
+    label {display: block;}
+    .invalid {display: none;}
+  </style>
+</head>
+<body>
+  <form>
+    <table>
+      <tr>
+        <td>
+          <label>Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label>URL:</label>
+          <input type="url" id="url" name="url" />
+
+          <label>Telephone:</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label>Number:</label>
+          <input type="number" id="myNumber" name="myNumber" />
+
+          <label>Range:</label>
+          <input type="range" id="myRange" name="myRange" />
+
+          <label>Color:</label>
+          <input type="color" id="myColor" name="myColor" />
+        </td>
+        <td>
+          <label>Date Demo</label>
+          <input type="date">
+
+          <label>Time Demo</label>
+          <input type="time">
+
+          <label>DateTime Local Demo</label>
+          <input type="datetime-local">
+
+          <label>Month Demo</label>
+          <input type="month">
+
+          <label>Week Demo</label>
+          <input type="week">
+
+          <div style="text-align:right">
+            <input type="submit" value="Validate" />
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
